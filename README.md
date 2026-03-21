@@ -2,7 +2,7 @@
 
 This repository contains the official implementation and pre-trained weights for our 3D Multi-Modal Foundation Models tailored for PET-CT medical image analysis. 
 
-Our framework utilizes an optimized Independent Masking Masked Autoencoder (MAE) pre-training strategy, applying a weighted global Mean Squared Error (MSE) loss ($L = L_{\text{masked}} + 0.2 \cdot L_{\text{unmasked}}$) combined with mean imputation to eliminate blocky artifacts. It supports robust fine-tuning for downstream tasks, such as automated tumor segmentation.
+Our framework utilizes an optimized Independent Masking Masked Autoencoder (MAE) pre-training strategy, applying a weighted global Mean Squared Error (MSE) loss combined with mean imputation to eliminate blocky artifacts. It supports robust fine-tuning for downstream tasks, such as automated tumor segmentation.
 
 ## 🗂️ Repository Structure
 
