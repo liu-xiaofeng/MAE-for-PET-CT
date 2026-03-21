@@ -28,7 +28,58 @@ Due to GitHub's file size limitations, our pre-trained model checkpoints (FP32) 
 
 The codebase is built entirely in Python and relies on PyTorch and MONAI. 
 
-**1. Clone the repository:**
-```bash
-git clone [https://github.com/liu-xiaofeng/Foundation-Model-for-PET-CT.git](https://github.com/liu-xiaofeng/Foundation-Model-for-PET-CT.git)
+1. Clone the repository:
+
+Bash
+git clone https://github.com/liu-xiaofeng/Foundation-Model-for-PET-CT.git
 cd Foundation-Model-for-PET-CT
+2. Create a virtual environment (Recommended):
+
+Bash
+conda create -n petct_fm python=3.10
+conda activate petct_fm
+3. Install dependencies:
+
+Bash
+# Core deep learning and medical imaging libraries
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install monai SimpleITK scipy numpy tqdm
+
+# Required for the nnU-Net v2 backbone integration
+pip install dynamic-network-architectures
+🚀 Usage Guide
+1. Data Preprocessing
+Our pipeline handles varying dataset spacings and baseline shifts (e.g., AutoPET, DeepPSMA, Spade, ViMedPET). The scripts dynamically crop empty background space using CT thresholding (CT > -500), standardize voxel spacing, and independently normalize both modalities using Z-score.
+
+Bash
+# Example usage for AutoPET preprocessing
+python preprocessing/process_autopet.py
+Note: Please update the source_base and target_base paths inside the preprocessing scripts to match your local dataset directories.
+
+2. Pre-Training (Masked Autoencoder)
+To train a foundation model from scratch using our independent masking strategy, use the provided MAE notebooks/scripts. The network will mask 50% of the independent PET and CT inputs and reconstruct the original volumes.
+
+Bash
+# Example: Run SwinUNETR MAE pre-training
+jupyter nbconvert --to script MAEv2.ipynb
+python MAEv2.py
+3. Downstream Fine-Tuning (Segmentation)
+To fine-tune the pre-trained foundation models for downstream segmentation, run the designated training scripts. The code automatically handles checkpoint resumption and learning rate scheduling (Cosine Annealing).
+
+Python
+# Inside your fine-tuning script (e.g., 100%training.ipynb):
+train_and_evaluate(
+    train_fraction=1.0, 
+    use_foundation=True, # Set to False to train from scratch
+    total_epochs=100
+)
+Ensure the foundation_ckpt_path within the script points to the .pth file you downloaded from Dropbox.
+
+📝 Citation
+If you find this repository or our pre-trained foundation models useful in your research, please consider citing our work:
+
+Code snippet
+[TBD: Citation details will be updated upon publication]
+
+📧 Contact
+For any questions regarding the code, data preprocessing, or model weights, please open an issue in this repository.
