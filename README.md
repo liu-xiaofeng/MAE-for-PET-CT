@@ -122,7 +122,3 @@ If you find this repository or the pre-trained foundation models useful in your 
 For questions regarding the code, data preprocessing, or model weights, please open an issue in this repository.
 """
 
-path = Path("/mnt/data/README_foundation_model_pet_ct.md")
-path.write_text(content, encoding="utf-8")
-
-print(f"Saved: {path}")
