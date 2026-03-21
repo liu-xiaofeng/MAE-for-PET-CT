@@ -1,6 +1,4 @@
-from pathlib import Path
-
-content = """# Foundation Model for PET-CT
+# Foundation Model for PET-CT
 
 This repository contains the official implementation and pre-trained weights for our 3D multimodal foundation models for PET-CT medical image analysis.
 
