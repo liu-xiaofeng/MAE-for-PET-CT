@@ -2,7 +2,7 @@
 
 This repository contains the official implementation and pre-trained weights for our 3D Multi-Modal Foundation Models tailored for PET-CT medical image analysis. 
 
-Our framework utilizes an optimized Independent Masking Masked Autoencoder (MAE) pre-training strategy, applying a weighted global Mean Squared Error (MSE) loss combined with mean imputation to eliminate blocky artifacts. It supports robust fine-tuning for downstream tasks, such as automated tumor segmentation.
+Our framework utilizes an optimized Independent Masking Masked Autoencoder (MAE) pre-training strategy, applying a weighted global Mean Squared Error (MSE) loss ($L = L_{\text{masked}} + 0.2 \cdot L_{\text{unmasked}}$) combined with mean imputation to eliminate blocky artifacts. It supports robust fine-tuning for downstream tasks, such as automated tumor segmentation.
 
 ## 🗂️ Repository Structure
 
@@ -28,10 +28,9 @@ Due to GitHub's file size limitations, our pre-trained model checkpoints (FP32) 
 
 The codebase is built entirely in Python and relies on PyTorch and MONAI. 
 
-1. Clone the repository:
-
-Bash
-git clone https://github.com/liu-xiaofeng/Foundation-Model-for-PET-CT.git
+**1. Clone the repository:**
+```bash
+git clone [https://github.com/liu-xiaofeng/Foundation-Model-for-PET-CT.git](https://github.com/liu-xiaofeng/Foundation-Model-for-PET-CT.git)
 cd Foundation-Model-for-PET-CT
 2. Create a virtual environment (Recommended):
 
@@ -42,7 +41,7 @@ conda activate petct_fm
 
 Bash
 # Core deep learning and medical imaging libraries
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install torch torchvision torchaudio --index-url [https://download.pytorch.org/whl/cu118](https://download.pytorch.org/whl/cu118)
 pip install monai SimpleITK scipy numpy tqdm
 
 # Required for the nnU-Net v2 backbone integration
@@ -79,7 +78,6 @@ Ensure the foundation_ckpt_path within the script points to the .pth file you do
 If you find this repository or our pre-trained foundation models useful in your research, please consider citing our work:
 
 Code snippet
-[TBD: Citation details will be updated upon publication]
-
+[Citation details will be updated upon publication]
 📧 Contact
 For any questions regarding the code, data preprocessing, or model weights, please open an issue in this repository.
