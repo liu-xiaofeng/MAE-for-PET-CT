@@ -16,7 +16,10 @@ The repository is organized as follows:
 
 - `swinv2small/`  
   Pre-training and fine-tuning scripts based on the **SwinUNETRv2-Small** architecture.
-
+  
+- `swinv2large/`  
+  Pre-training and fine-tuning scripts based on the **SwinUNETRv2-Large** architecture.
+  
 - `nnunetv2/`  
   Implementations based on the official `PlainConvUNet` from the **nnU-Net v2** backbone library.
 
@@ -31,6 +34,7 @@ Due to GitHub file size limitations, the pre-trained model checkpoints are hoste
 | --- | ---: | --- |
 | **SwinUNETRv2-Base** `(2,2,6,2)-48` | ~74.6M | `swin_mae_best_v2.pth` |
 | **SwinUNETRv2-Small** `(2,2,2,2)-24` | ~18.3M | `swin_small_mae_best.pth` |
+| **SwinUNETRv2-Large** `(2,2,18,2)-96` | ~319.2M | `swin_large_mae_best.pth` |
 | **nnUNetV2-3d_fullres** | ~31.2M | `nnunet_v2_mim_best.pth` |
 
 ## Installation
