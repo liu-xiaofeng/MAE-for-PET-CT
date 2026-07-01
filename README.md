@@ -1,6 +1,6 @@
-# Foundation Model for PET-CT
+# MAE training for PET-CT
 
-This repository contains the official implementation and pre-trained weights for our 3D multimodal foundation models for PET-CT medical image analysis.
+This repository contains the implementation and pre-trained weights for our 3D multimodal MAE pre-trained models for PET-CT medical image analysis.
 
 Our framework uses an optimized independent masking masked autoencoder (MAE) pre-training strategy with a weighted global mean squared error (MSE) loss, combined with mean imputation to reduce blocky artifacts. The pre-trained models support robust fine-tuning for downstream tasks such as automated tumor segmentation.
 
